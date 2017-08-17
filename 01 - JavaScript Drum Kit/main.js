@@ -5,5 +5,5 @@ window.addEventListener('keydown', function(event){
 	if(!audio) return; //stop the function from running if key pressed doesn't have sound
 	audio.currentTime = 0; //rewind to the start to sounds can be played in succession
 	audio.play();
-	console.log(key);
+	key.classList.add('playing'); //add playing class to div el
 })
