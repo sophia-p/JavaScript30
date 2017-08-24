@@ -22,9 +22,20 @@
 
   <style>
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    :root {
+      --base: #ffc600;
+      --blur: 10px;
+      --padding: 10px;
+    }
+    img {
+      background: var(--base);
+      filter: blur(var(--blur));
+      padding: var(--padding);
+    }
+
+    .h1 {
+      color: var(--base);
+    }
 
     body {
       text-align: center;
