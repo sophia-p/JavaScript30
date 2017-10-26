@@ -12,6 +12,7 @@
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
+
     // and we want to make a copy of it.
 
     // You might think we can just do something like this:
@@ -27,18 +28,60 @@
     // So, how do we fix this? We take a copy instead!
 
     // one way
+    console.log("original players is  " + players);
+    const team2 = players.slice();
+    console.log("team 2 is  " + team2);
+    team2[3] = "Lux";
+    console.log("team2 is now " + team2);
+    console.log("players is " + players);
+
+    const team3 = [].concat(players);
+    console.log("team3 is " + team3);
 
     // or create a new array and concat the old one in
 
     // or use the new ES6 Spread
+
+    const team4 = [...players];
+    //spread takes every item out of iterable and puts it into containing array (in this case)
+    console.log("team4 is " + team4)
+
+    const team5= Array.from(players);
+    console.log("team5 is " + players);
 
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
 
     // with Objects
-
+    const wes = {
+      name: 'Wes',
+      age: 100,
+      social: {
+        twitter: '@wesbos',
+        facebook: 'wesbos.developer'
+      }
+    };
+    
     // and think we make a copy:
+        //start with blank obj, pass it obj you wish to copy all properties from, then fold in new properties to add/change
+    const wes2 = Object.assign({},wes, {age:99});
+    //ONLY for one-level deep. If twitter handle is changed here, it will be changed in wes
+    console.log("wes2' twitter is + " + wes2.social.twitter)
+    wes2.social.twitter = '@coolman';
+    console.log("wes2's handle is " + wes2.social.twitter);
+    console.log("wes' handle is " + wes.social.twitter);
+
+    //could deep clone (though not that often necessary) or "poor man's deepl clone": JSON.parse(JSON.stringify(wes)) as a hack, turning it into string then back into obj.;
+
+    //for one-level deep
+    console.log("wes2 is " + wes2.age);
+    console.log("wes is " + wes.age);
+   
+
+    const wes3 = {...wes};
+    console.log("wes3 is " + wes3.age)
+
 
     // how do we take a copy instead?
 
